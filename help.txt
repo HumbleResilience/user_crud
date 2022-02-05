@@ -1,0 +1,62 @@
+Terminal commands:
+---------------------------------------------------
+mkdir -p ~Code/SDKGU
+~/Code/SDGKU
+
+ls -la
+
+pwd (print working dir)
+
+explorer.exe .   (open in explorer)
+
+touch myfile.txt (creates files)
+
+mv myfile.txt quick_dir  
+(move files from source to destination)
+
+mv myfile.txt myfile2.txt (rename)
+
+rmdir delete_me (delete file)
+
+cd .. (parent dir)
+
+rm -rf quick_dir (remove entire directory)
+================================
+Flask
+
+make dir app
+touch app/__init__.py
+touch run.py
+touch README.md
+touch app/routes.py
+
+pip3 freeze > requirements.txt
+
+
+python3 -m venv venv (virtual env)
+source venv/bin/activate (activate it)
+deactivate 
+
+pip3 install flask (install flask on venv)
+
+code .
+
+.gitignore
+venv/*
+*__pycache__*
+
+================================
+Git commands
+
+1. git init
+2. git status
+3. git add -A  include all files"
+4. git commit -m"FSDI 111"
+5. git remote add origin "git hub link"
+6. git branch -M main
+7. git push -u origin main
+8. Setup  SSH Keys
+-------------------------------------------------------
+9. export FLASK_APP=run.py
+10. export FLASK_ENV=development
+10. flask run
