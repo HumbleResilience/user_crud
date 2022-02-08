@@ -1,4 +1,8 @@
-from flask import Flask, request
+from flask import (
+    Flask, 
+    request, 
+    render_template)
+    
 from datetime import datetime
 
 app = Flask(__name__)
@@ -53,14 +57,25 @@ def update_user(pk):
     user.update(
         pk,
         user_data.get("first_name"),
-        user_get.data("last_name"),
+        user_data.get("last_name"),
         user_data.get("hobbies")
     )
 
-    return 204
+    return "", 204
 
 
 @app.delete("/users/<int:pk>")
 def deactivate_user(pk):
     user.deactivate_user(pk)
-    return 204
+    return  "", 204
+
+
+# @app.put("/users<int:pk>/active")
+#     def reactivate_user(pk):
+#         user.reactivate_user(pk)
+#         return "", 204
+
+
+@app.get("/")
+def index():
+    return render_template("index.html")

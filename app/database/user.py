@@ -21,13 +21,13 @@ def insert(first_name, last_name, hobbies=None, active = 1):
             hobbies,
             active
 
-        ) Values (?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?)
 
     """
 
     cursor = get_db()
     last_row_id = cursor.execute(query, value_tuple).last_row_id
-    cursor, commit()
+    cursor.commit()
     cursor.close()
     return last_row_id
 
@@ -50,18 +50,19 @@ def read(pk):
     return output_formatter(results)
 
 def update(pk, first_name, last_name, hobbies):
-    value_tupple = (first_name, last_name, hobbies, pk)
+    value_tuple = (first_name, last_name, hobbies, pk)
     query = """
         UPDATE user
         SET first_name=?,
         last_name=?,
         hobbies=?
+        WHERE id=?
         """
 
-cursor = get_db()
-cursor.execute(query, value_tuple)
-cursor.commit()
-cursor.close()
+    cursor = get_db()
+    cursor.execute(query, value_tuple)
+    cursor.commit()
+    cursor.close()
 
 def deactivate_user(pk):
     cursor = get_db()
