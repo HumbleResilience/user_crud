@@ -31,7 +31,7 @@ def create_user():
 
     out = {"new_id": new_id}
 
-    return out
+    return out, 201
 
 
 @app.get("/users")
